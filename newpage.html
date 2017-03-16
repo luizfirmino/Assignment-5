@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Page</title>
+    <script type="text/javascript">
+        
+        var c;
+        
+        function displayMessage(){
+            window.console.log("Learning JavaScript is fun!");
+        }
+        
+        function start(){
+            c = setInterval(displayMessage, 2000);
+        }
+        
+        function stop(){
+            clearInterval(c);
+        }
+        
+        function step10(){
+            var ddl1 = document.getElementById("ddl1");
+            window.alert(ddl1.value);
+        }
+        
+        window.addEventListener("load", init, false);
+        function init() {
+            setTimeout(function () {window.resizeTo(500, 300);}, 1000);
+            
+            var startButton = document.getElementById("start");
+            startButton.addEventListener("click", start, false);
+            
+            var stopButton = document.getElementById("stop");
+            stopButton.addEventListener("click", stop, false);
+            
+            var btn1 = document.getElementById("btn1");
+            btn1.addEventListener("click", step10, false);
+            
+        }
+         
+    </script>
+</head>
+<body>
+<!--
+8.	Create a new page called newpage.html. You will now have 2 web pages including index.html and newpage.html. Add a button to index.html. When the button is clicked, newpage.html should appear as a popup window at 300 pixels wide by 300 pixels high. As soon as newpage.html loads however, resize the window to 500 pixels wide by 300 pixels high. You will need to handle the load event on newpage.html and use a BOM method on newpage.html to accomplish this task.
+
+9.	Add two buttons to a web page. Add the text Start to one button and Stop to the other button. Using the BOM .setInterval() method, figure out a way to move display the text “Learning JavaScript is fun!” into the console window every 2 seconds but only when the Start button is clicked. If the user clicks on the Stop button, the console should stop logging the text immediately.
+-->
+<input id="start" type="button" value="Start">
+<input id="stop" type="button" value="Stop">
+
+<!--
+10.	Add a drop down list to a web page. Populate the drop down list with 4 items. Add a button next to the drop down list and set the text to “Select”. When the user clicks the button, the item selected in the drop down list should appear within an alert box.
+-->
+<p>
+<select id="ddl1">
+    <option value="Brazil">Brazil</option>
+    <option value="Canada">Canada</option>
+    <option value="Australia">Australia</option>
+    <option value="USA">USA</option>
+</select>
+<input type="button" id="btn1" value="Select">
+</p>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Assignment 5, Part 3 - Image Rollovers</title>
+<script>
+    
+    //02: Helper function to retrienve the ID of each image
+    function getImage(id){
+        return document.getElementById(id);
+    }
+    
+    //03: Rollover function that performs the rollover effect on each image
+    function Rollover(imageId, newImageURL){
+        var img = getImage(imageId);
+        
+        var target = {
+            _image:         img,
+            _newImageURL:   newImageURL,
+            _oldImageURL:   img.src
+        };
+        
+        target._image.onmouseover = function() { 
+            target._image.src = target._newImageURL 
+        }
+        target._image.onmouseout = function() {
+            target._image.src = target._oldImageURL;
+        }
+    }
+
+    //12, 13: Event handler to create 5 new Rollover objects once the page loads
+    window.addEventListener("load", init, false);
+    function init() {
+        var home = new Rollover("home", "home_over.png");
+        var about = new Rollover("about", "aboutus_over.png");
+        var solutions = new Rollover("solutions", "solutions_over.png");
+        var support = new Rollover("support", "support_over.png");
+        var contact = new Rollover("contact", "contactus_over.png");
+    }
+    
+</script>
+</head>
+
+<body>
+	<!-- 01 -->
+    <img src="home.png" id="home">
+    <img src="aboutus.png" id="about">
+    <img src="solutions.png" id="solutions">
+    <img src="support.png" id="support">
+    <img src="contactus.png" id="contact">
+</body>
+</html>
